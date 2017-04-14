@@ -15,6 +15,7 @@ import { Provider } from 'react-redux';
 import { applyRouterMiddleware, Router, browserHistory } from 'react-router';
 import { syncHistoryWithStore } from 'react-router-redux';
 import { useScroll } from 'react-router-scroll';
+import injectTapEventPlugin from 'react-tap-event-plugin'; // FIXME: Required by Material UI, delete when no longer needed.
 import 'sanitize.css/sanitize.css';
 
 // Import root app
@@ -63,6 +64,9 @@ const rootRoute = {
   component: App,
   childRoutes: createRoutes(store),
 };
+
+// FIXME: Temporarily needed by MaterialUI for onTouchTap, delete when no longer required.
+injectTapEventPlugin();
 
 const render = (messages) => {
   ReactDOM.render(
