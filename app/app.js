@@ -18,8 +18,12 @@ import { useScroll } from 'react-router-scroll';
 import 'sanitize.css/sanitize.css';
 
 // MaterialUI
-import injectTapEventPlugin from 'react-tap-event-plugin'; // FIXME: Required by Material UI, delete when no longer needed.
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import createPalette from 'material-ui/styles/palette';
+import createMuiTheme from 'material-ui/styles/theme';
+import { blue, pink } from 'material-ui/styles/colors';
+// FIXME: Required by Material UI, delete when no longer needed.
+import injectTapEventPlugin from 'react-tap-event-plugin';
 
 // Import root app
 import App from 'containers/App';
@@ -68,12 +72,21 @@ const rootRoute = {
   childRoutes: createRoutes(store),
 };
 
-// FIXME: Temporarily needed by MaterialUI for onTouchTap, delete when no longer required.
+// MaterialUI theme
 injectTapEventPlugin();
+const palette = createPalette({
+  primary: blue,
+  accent: pink,
+  type: 'light',
+});
+
+const { styleManager, theme } = MuiThemeProvider.createDefaultContext({
+  theme: createMuiTheme({ palette }),
+});
 
 const render = (messages) => {
   ReactDOM.render(
-    <MuiThemeProvider>
+    <MuiThemeProvider theme={theme} styleManager={styleManager}>
       <Provider store={store}>
         <LanguageProvider messages={messages}>
           <Router
