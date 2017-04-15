@@ -19,11 +19,11 @@ import MenuIcon from 'material-ui-icons/Menu';
 const styleSheet = createStyleSheet('ToolBar', () => ({
   root: {
     position: 'relative',
-    marginTop: 30,
     width: '100%',
   },
   appBar: {
     position: 'relative',
+    'box-shadow': 'none',
   },
   flex: {
     flex: 1,
@@ -39,7 +39,7 @@ function ToolBar(props, context) {
           <IconButton contrast>
             <MenuIcon />
           </IconButton>
-          <Text type="title" colorInherit className={classes.flex}>Title</Text>
+          <Text type="title" colorInherit className={classes.flex}>Urban</Text>
           <Button contrast>Login</Button>
         </Toolbar>
       </AppBar>
