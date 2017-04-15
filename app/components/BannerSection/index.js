@@ -1,6 +1,6 @@
 /**
 *
-* Banner
+* BannerSection
 *
 */
 
@@ -18,7 +18,7 @@ import messages from './messages';
 import banner from '../../static/img/banner.jpg';
 
 
-const styleSheet = createStyleSheet('Banner', (theme) => ({
+const styleSheet = createStyleSheet('BannerSection', (theme) => ({
   root: theme.mixins.gutters({
     paddingTop: 16,
     paddingBottom: 16,
@@ -50,7 +50,7 @@ const styleSheet = createStyleSheet('Banner', (theme) => ({
   },
 }));
 
-function Banner(props, context) {
+function BannerSection(props, context) {
   const classes = context.styleManager.render(styleSheet);
   return (
     <div className={classes.root}>
@@ -81,11 +81,11 @@ function Banner(props, context) {
   );
 }
 
-Banner.contextTypes = {
+BannerSection.contextTypes = {
   styleManager: customPropTypes.muiRequired,
 };
 
-Banner.propTypes = {
+BannerSection.propTypes = {
 };
 
-export default Banner;
+export default BannerSection;
