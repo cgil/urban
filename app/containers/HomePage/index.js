@@ -10,18 +10,37 @@
  */
 
 import React from 'react';
+import Divider from 'material-ui/Divider';
+import customPropTypes from 'material-ui/utils/customPropTypes';
+import { createStyleSheet } from 'jss-theme-reactor';
 import ToolBar from '../../components/ToolBar';
 import BannerSection from '../../components/BannerSection';
 import HomesSection from '../../components/HomesSection';
+import FeaturesSection from '../../components/FeaturesSection';
 
-export default class HomePage extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
-  render() {
-    return (
-      <div>
-        <ToolBar />
-        <BannerSection />
-        <HomesSection />
-      </div>
-    );
-  }
+
+const styleSheet = createStyleSheet('HomePage', () => ({
+  divider: {
+    margin: '40px 30% 0 30%',
+  },
+}));
+
+
+function HomePage(props, context) {
+  const classes = context.styleManager.render(styleSheet);
+  return (
+    <div>
+      <ToolBar />
+      <BannerSection />
+      <HomesSection />
+      <Divider className={classes.divider} />
+      <FeaturesSection />
+    </div>
+  );
 }
+
+HomePage.contextTypes = {
+  styleManager: customPropTypes.muiRequired,
+};
+
+export default HomePage;

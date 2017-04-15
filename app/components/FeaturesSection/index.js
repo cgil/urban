@@ -1,6 +1,6 @@
 /**
 *
-* HomesSection
+* FeaturesSection
 *
 */
 
@@ -13,13 +13,13 @@ import customPropTypes from 'material-ui/utils/customPropTypes';
 import Text from 'material-ui/Text';
 import Layout from 'material-ui/Layout';
 import Paper from 'material-ui/Paper';
-import HomeDetail from './HomeDetail';
+import FeaturesDetail from './FeaturesDetail';
 import messages from './messages';
-import bedroomImg from '../../static/img/bedroom.jpg';
+import kitchenImg from '../../static/img/kitchen.jpg';
 import livingImg from '../../static/img/living.jpg';
 
 
-const styleSheet = createStyleSheet('HomesSection', (theme) => ({
+const styleSheet = createStyleSheet('FeaturesSection', (theme) => ({
   root: theme.mixins.gutters({
     paddingTop: 16,
     paddingBottom: 16,
@@ -37,7 +37,7 @@ const styleSheet = createStyleSheet('HomesSection', (theme) => ({
   },
 }));
 
-function HomesSection(props, context) {
+function FeaturesSection(props, context) {
   const classes = context.styleManager.render(styleSheet);
   return (
     <div className={classes.root}>
@@ -55,9 +55,6 @@ function HomesSection(props, context) {
                 <Text type={'display3'} component={'h1'} align={'center'} gutterBottom>
                   <FormattedMessage {...messages.headline} />
                 </Text>
-                <Text type={'headline'} component={'h3'} align={'center'} secondary>
-                  <FormattedMessage {...messages.nyc} />
-                </Text>
               </Paper>
             </Layout>
           </Layout>
@@ -68,16 +65,16 @@ function HomesSection(props, context) {
             justify={'center'}
           >
             <Layout item xs>
-              <HomeDetail
-                name={messages.crownHeightsName}
-                address={messages.crownHeightsAddress}
-                image={bedroomImg}
+              <FeaturesDetail
+                name={messages.convenienceName}
+                address={messages.convenienceDescription}
+                image={kitchenImg}
               />
             </Layout>
             <Layout item xs>
-              <HomeDetail
-                name={messages.havemayerName}
-                address={messages.havemayerAddress}
+              <FeaturesDetail
+                name={messages.communityName}
+                address={messages.communityDescription}
                 image={livingImg}
               />
             </Layout>
@@ -88,12 +85,12 @@ function HomesSection(props, context) {
   );
 }
 
-HomesSection.contextTypes = {
+FeaturesSection.contextTypes = {
   styleManager: customPropTypes.muiRequired,
 };
 
-HomesSection.propTypes = {
+FeaturesSection.propTypes = {
 
 };
 
-export default HomesSection;
+export default FeaturesSection;

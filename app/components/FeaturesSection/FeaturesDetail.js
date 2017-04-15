@@ -1,6 +1,6 @@
 /**
 *
-* HomesSection
+* FeaturesSection Detail
 *
 */
 
@@ -9,28 +9,15 @@ import React, { PropTypes } from 'react';
 
 import { FormattedMessage } from 'react-intl';
 import { createStyleSheet } from 'jss-theme-reactor';
-import { white } from 'material-ui/styles/colors';
 import customPropTypes from 'material-ui/utils/customPropTypes';
 import Text from 'material-ui/Text';
 import Layout from 'material-ui/Layout';
 import Paper from 'material-ui/Paper';
-import Divider from 'material-ui/Divider';
 
 
-const styleSheet = createStyleSheet('Detail', (theme) => ({
-  root: theme.mixins.gutters({
-    flexGrow: 1,
-    position: 'relative',
-  }),
-  item: {
-    height: '100%',
-  },
-  photos: {
-    height: 400,
-  },
-  text: {
-    color: 'white',
-    'text-shadow': '1px 1px 2px rgba(0,0,0,0.5)',
+const styleSheet = createStyleSheet('FeaturesDetail', () => ({
+  container: {
+    height: 600,
   },
   transparent: {
     'background-color': 'transparent',
@@ -40,30 +27,35 @@ const styleSheet = createStyleSheet('Detail', (theme) => ({
     'background-size': 'cover',
     'background-position': '50% 50%',
     height: 380,
+    'min-width': '100%',
   },
-  divider: {
-    'background-color': white,
-    height: 2,
+  item: {
+    'min-width': '100%',
+  },
+  feature: {
+    height: 200,
   },
 }));
 
-function Detail(props, context) {
+function FeaturesDetail(props, context) {
   const classes = context.styleManager.render(styleSheet);
   return (
-    <Paper elevation={0} square className={classes.backgroundImage} style={{ 'background-image': `url(${props.image})` }}>
+    <Paper elevation={0} square className={classes.transparent}>
       <Layout
         container
-        className={classes.photos}
+        className={classes.container}
         align={'center'}
         direction={'column'}
         justify={'center'}
       >
-        <Layout item>
-          <Text type={'display3'} component={'h1'} align={'center'} className={classes.text}>
+        <Layout item className={classes.item}>
+          <div className={classes.backgroundImage} style={{ backgroundImage: `url(${props.image})` }} ></div>
+        </Layout>
+        <Layout item className={classes.feature}>
+          <Text type={'display1'} component={'h1'} align={'center'} gutterBottom>
             <FormattedMessage {...props.name} />
           </Text>
-          <Divider light className={classes.divider} />
-          <Text type={'headline'} component={'h3'} align={'center'} secondary className={classes.text}>
+          <Text type={'subheading'} component={'h3'} align={'center'} secondary>
             <FormattedMessage {...props.address} />
           </Text>
         </Layout>
@@ -72,14 +64,14 @@ function Detail(props, context) {
   );
 }
 
-Detail.contextTypes = {
+FeaturesDetail.contextTypes = {
   styleManager: customPropTypes.muiRequired,
 };
 
-Detail.propTypes = {
+FeaturesDetail.propTypes = {
   name: PropTypes.object,
   address: PropTypes.object,
   image: PropTypes.string,
 };
 
-export default Detail;
+export default FeaturesDetail;
