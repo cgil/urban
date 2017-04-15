@@ -14,8 +14,9 @@ import customPropTypes from 'material-ui/utils/customPropTypes';
 import Text from 'material-ui/Text';
 import Button from 'material-ui/Button';
 import Layout from 'material-ui/Layout';
+import Paper from 'material-ui/Paper';
 import messages from './messages';
-import banner from '../../static/img/banner.jpg';
+import bannerImg from '../../static/img/banner.jpg';
 
 
 const styleSheet = createStyleSheet('BannerSection', (theme) => ({
@@ -23,20 +24,19 @@ const styleSheet = createStyleSheet('BannerSection', (theme) => ({
     paddingTop: 16,
     paddingBottom: 16,
     flexGrow: 1,
-    'background-image': `url(${banner})`,
+    'background-image': `url(${bannerImg})`,
     'background-repeat': 'no-repeat',
     'background-size': 'cover',
     'background-position': '50% 50%',
     height: 672,
     position: 'relative',
   }),
-  layout: {
+  container: {
     flexGrow: 1,
-    position: 'relative',
     height: '100%',
   },
   item: {
-    height: '90%',
+    height: '100%',
   },
   button: {
     margin: theme.spacing.unit,
@@ -45,8 +45,12 @@ const styleSheet = createStyleSheet('BannerSection', (theme) => ({
     'font-size': 18,
     padding: '0 24px',
   },
+  paper: {
+    'background-color': 'transparent',
+  },
   text: {
     color: white,
+    'text-shadow': '1px 1px 2px rgba(0,0,0,0.5)',
   },
 }));
 
@@ -54,7 +58,7 @@ function BannerSection(props, context) {
   const classes = context.styleManager.render(styleSheet);
   return (
     <div className={classes.root}>
-      <Layout container className={classes.layout} gutter={16}>
+      <Layout container gutter={16} className={classes.container}>
         <Layout item xs={12}>
           <Layout
             container
@@ -64,15 +68,21 @@ function BannerSection(props, context) {
             justify={'center'}
           >
             <Layout item>
-              <Text type={'display3'} component={'h1'} align={'center'} className={classes.text}>
-                <FormattedMessage {...messages.headline} />
-              </Text>
-              <Text type={'display1'} component={'h3'} align={'center'} className={classes.text}>
-                <FormattedMessage {...messages.slogan} />
-              </Text>
+              <Paper elevation={0} square className={classes.paper}>
+                <Text type={'display3'} component={'h1'} align={'center'} className={classes.text}>
+                  <FormattedMessage {...messages.headline} />
+                </Text>
+                <Text type={'display1'} component={'h3'} align={'center'} className={classes.text}>
+                  <FormattedMessage {...messages.slogan} />
+                </Text>
+              </Paper>
             </Layout>
             <Layout item>
-              <Button raised accent className={classes.button}>Learn More</Button>
+              <Paper elevation={0} square className={classes.paper}>
+                <Button raised accent className={classes.button}>
+                  <FormattedMessage {...messages.button} />
+                </Button>
+              </Paper>
             </Layout>
           </Layout>
         </Layout>

@@ -12,6 +12,7 @@
 import React from 'react';
 import ToolBar from '../../components/ToolBar';
 import BannerSection from '../../components/BannerSection';
+import HomesSection from '../../components/HomesSection';
 
 export default class HomePage extends React.PureComponent { // eslint-disable-line react/prefer-stateless-function
   render() {
@@ -19,6 +20,7 @@ export default class HomePage extends React.PureComponent { // eslint-disable-li
       <div>
         <ToolBar />
         <BannerSection />
+        <HomesSection />
       </div>
     );
   }

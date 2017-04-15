@@ -14,4 +14,8 @@ export default defineMessages({
     id: 'app.components.BannerSection.slogan',
     defaultMessage: 'Everything included, simple housing.',
   },
+  button: {
+    id: 'app.components.BannerSection.button',
+    defaultMessage: 'Learn More',
+  },
 });
