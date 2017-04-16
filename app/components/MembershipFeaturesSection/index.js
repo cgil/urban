@@ -13,7 +13,15 @@ import customPropTypes from 'material-ui/utils/customPropTypes';
 import Text from 'material-ui/Text';
 import Layout from 'material-ui/Layout';
 import Paper from 'material-ui/Paper';
-import AirlineSeatIndividualSuite from 'material-ui-icons/AirlineSeatIndividualSuite';
+import Hotel from 'material-ui-icons/Hotel';
+import Weekend from 'material-ui-icons/Weekend';
+import Wifi from 'material-ui-icons/Wifi';
+import InsertInvitation from 'material-ui-icons/InsertInvitation';
+import LocalLaundryService from 'material-ui-icons/LocalLaundryService';
+import LocalActivity from 'material-ui-icons/LocalActivity';
+import WbSunny from 'material-ui-icons/WbSunny';
+import LocalFlorist from 'material-ui-icons/LocalFlorist';
+import RestaurantMenu from 'material-ui-icons/RestaurantMenu';
 import messages from './messages';
 import FeatureIcon from './FeatureIcon';
 
@@ -68,67 +76,67 @@ function MembershipFeaturesSection(props, context) {
             direction={'row'}
             justify={'center'}
           >
-            <Layout item xs={4}>
+            <Layout item xs={12} sm={4}>
               <FeatureIcon
                 name={messages.privateBedroomName}
                 description={messages.privateBedroomDescription}
-                icon={AirlineSeatIndividualSuite}
+                icon={Hotel}
               />
             </Layout>
-            <Layout item xs={4}>
+            <Layout item xs={12} sm={4}>
               <FeatureIcon
                 name={messages.flexibleName}
                 description={messages.flexibleDescription}
-                icon={AirlineSeatIndividualSuite}
+                icon={InsertInvitation}
               />
             </Layout>
-            <Layout item xs={4}>
+            <Layout item xs={12} sm={4}>
               <FeatureIcon
                 name={messages.furnishedName}
                 description={messages.furnishedDescription}
-                icon={AirlineSeatIndividualSuite}
+                icon={Weekend}
               />
             </Layout>
-            <Layout item xs={4}>
+            <Layout item xs={12} sm={4}>
               <FeatureIcon
                 name={messages.utilitiesCoveredName}
                 description={messages.utilitiesCoveredDescription}
-                icon={AirlineSeatIndividualSuite}
+                icon={WbSunny}
               />
             </Layout>
-            <Layout item xs={4}>
+            <Layout item xs={12} sm={4}>
               <FeatureIcon
                 name={messages.wifiName}
                 description={messages.wifiDescription}
-                icon={AirlineSeatIndividualSuite}
+                icon={Wifi}
               />
             </Layout>
-            <Layout item xs={4}>
+            <Layout item xs={12} sm={4}>
               <FeatureIcon
                 name={messages.cleaningName}
                 description={messages.cleaningDescription}
-                icon={AirlineSeatIndividualSuite}
+                icon={LocalFlorist}
               />
             </Layout>
-            <Layout item xs={4}>
+            <Layout item xs={12} sm={4}>
               <FeatureIcon
                 name={messages.suppliesName}
                 description={messages.suppliesDescription}
-                icon={AirlineSeatIndividualSuite}
+                icon={RestaurantMenu}
               />
             </Layout>
-            <Layout item xs={4}>
+            <Layout item xs={12} sm={4}>
               <FeatureIcon
                 name={messages.eventsName}
                 description={messages.eventsDescription}
-                icon={AirlineSeatIndividualSuite}
+                icon={LocalActivity}
               />
             </Layout>
-            <Layout item xs={4}>
+            <Layout item xs={12} sm={4}>
               <FeatureIcon
                 name={messages.laundryName}
                 description={messages.laundryDescription}
-                icon={AirlineSeatIndividualSuite}
+                icon={LocalLaundryService}
               />
             </Layout>
           </Layout>

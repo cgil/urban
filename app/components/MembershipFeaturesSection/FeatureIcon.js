@@ -34,16 +34,16 @@ function FeatureIcon(props, context) {
     <Paper elevation={0} square className={classes.transparent}>
       <Layout
         container
-        align={'center'}
+        align={'flex-start'}
         direction={'row'}
         justify={'center'}
       >
-        <Layout item xs={3}>
+        <Layout item xs={2} sm={3} lg={2}>
           <Icon accent>
             <IconType className={classes.icon} />
           </Icon>
         </Layout>
-        <Layout item xs={9}>
+        <Layout item xs={10} sm={9} lg={10}>
           <Text type={'title'} component={'h1'} align={'left'} gutterBottom>
             <FormattedMessage {...props.name} />
           </Text>
