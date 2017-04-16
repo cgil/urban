@@ -15,8 +15,8 @@ import Layout from 'material-ui/Layout';
 import Paper from 'material-ui/Paper';
 import FeaturesDetail from './FeaturesDetail';
 import messages from './messages';
-import kitchenImg from '../../static/img/kitchen.jpg';
-import livingImg from '../../static/img/living.jpg';
+import cookingImg from '../../static/img/cooking.jpg';
+import guitarImg from '../../static/img/guitar.jpg';
 
 
 const styleSheet = createStyleSheet('FeaturesSection', (theme) => ({
@@ -68,14 +68,14 @@ function FeaturesSection(props, context) {
               <FeaturesDetail
                 name={messages.convenienceName}
                 address={messages.convenienceDescription}
-                image={kitchenImg}
+                image={cookingImg}
               />
             </Layout>
             <Layout item xs>
               <FeaturesDetail
                 name={messages.communityName}
                 address={messages.communityDescription}
-                image={livingImg}
+                image={guitarImg}
               />
             </Layout>
           </Layout>

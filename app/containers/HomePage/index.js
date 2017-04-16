@@ -17,6 +17,7 @@ import ToolBar from '../../components/ToolBar';
 import BannerSection from '../../components/BannerSection';
 import HomesSection from '../../components/HomesSection';
 import FeaturesSection from '../../components/FeaturesSection';
+import MembershipFeaturesSection from '../../components/MembershipFeaturesSection';
 
 
 const styleSheet = createStyleSheet('HomePage', () => ({
@@ -35,6 +36,7 @@ function HomePage(props, context) {
       <HomesSection />
       <Divider className={classes.divider} />
       <FeaturesSection />
+      <MembershipFeaturesSection />
     </div>
   );
 }
