@@ -20,6 +20,7 @@ import FeaturesSection from '../../components/FeaturesSection';
 import MembershipFeaturesSection from '../../components/MembershipFeaturesSection';
 import TestimonialsSection from '../../components/TestimonialsSection';
 import CtaSection from '../../components/CtaSection';
+import FooterSection from '../../components/FooterSection';
 
 
 const styleSheet = createStyleSheet('HomePage', () => ({
@@ -41,6 +42,7 @@ function HomePage(props, context) {
       <MembershipFeaturesSection />
       <TestimonialsSection />
       <CtaSection />
+      <FooterSection />
     </div>
   );
 }

@@ -26,6 +26,7 @@ const styleSheet = createStyleSheet('CtaSection', (theme) => ({
   }),
   paper: {
     'background-color': 'transparent',
+    marginBottom: 80,
   },
   button: {
     margin: theme.spacing.unit,

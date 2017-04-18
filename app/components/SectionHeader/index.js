@@ -29,7 +29,7 @@ function SectionHeader(props, context) {
     <Layout
       container
       gutter={16}
-      style={{ 'margin-top': props.marginTop, 'margin-bottom': props.marginBottom }}
+      style={{ marginTop: props.marginTop, marginBottom: props.marginBottom }}
       align={'center'}
       direction={'row'}
       justify={'center'}
