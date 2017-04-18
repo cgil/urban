@@ -15,9 +15,6 @@ import Paper from 'material-ui/Paper';
 import Text from 'material-ui/Text';
 
 const styleSheet = createStyleSheet('SectionHeader', () => ({
-  headline: {
-    height: 300,
-  },
   transparent: {
     'background-color': 'transparent',
   },
