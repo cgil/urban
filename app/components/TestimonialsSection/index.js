@@ -26,9 +26,6 @@ const styleSheet = createStyleSheet('TestimonialsSection', (theme) => ({
     flexGrow: 1,
     position: 'relative',
   }),
-  headline: {
-    height: 250,
-  },
   white: {
     color: 'white',
   },
@@ -46,7 +43,6 @@ function TestimonialsSection(props, context) {
         <Layout item xs={12}>
           <Layout
             container
-            className={classes.headline}
             align={'center'}
             direction={'row'}
             justify={'center'}

@@ -29,7 +29,7 @@ function SectionHeader(props, context) {
     <Layout
       container
       gutter={16}
-      className={classes.headline}
+      style={{ 'margin-top': props.marginTop, 'margin-bottom': props.marginBottom }}
       align={'center'}
       direction={'row'}
       justify={'center'}
@@ -57,6 +57,13 @@ SectionHeader.contextTypes = {
 SectionHeader.propTypes = {
   headline: PropTypes.object,
   slogan: PropTypes.object,
+  marginTop: PropTypes.number,
+  marginBottom: PropTypes.number,
+};
+
+SectionHeader.defaultProps = {
+  marginTop: 120,
+  marginBottom: 120,
 };
 
 export default SectionHeader;

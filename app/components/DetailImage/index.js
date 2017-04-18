@@ -76,7 +76,7 @@ function DetailImage(props, context) {
         </Paper>
       </Layout>
       {props.under &&
-        <Layout item xs={12}>
+        <Layout item xs={12} style={{ height: 100 }}>
           <Text type={'body1'} component={'p'} align={'center'} secondary>
             <FormattedMessage {...props.under} />
           </Text>

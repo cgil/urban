@@ -19,6 +19,7 @@ import HomesSection from '../../components/HomesSection';
 import FeaturesSection from '../../components/FeaturesSection';
 import MembershipFeaturesSection from '../../components/MembershipFeaturesSection';
 import TestimonialsSection from '../../components/TestimonialsSection';
+import CtaSection from '../../components/CtaSection';
 
 
 const styleSheet = createStyleSheet('HomePage', () => ({
@@ -39,6 +40,7 @@ function HomePage(props, context) {
       <FeaturesSection />
       <MembershipFeaturesSection />
       <TestimonialsSection />
+      <CtaSection />
     </div>
   );
 }
