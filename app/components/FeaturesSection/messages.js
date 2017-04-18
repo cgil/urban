@@ -6,6 +6,10 @@
 import { defineMessages } from 'react-intl';
 
 export default defineMessages({
+  headline: {
+    id: 'app.components.FeaturesSection.headline',
+    defaultMessage: 'Features',
+  },
   convenienceName: {
     id: 'app.components.FeaturesSection.convenienceName',
     defaultMessage: 'Convenience',
@@ -21,9 +25,5 @@ export default defineMessages({
   communityDescription: {
     id: 'app.components.FeaturesSection.communityDescription',
     defaultMessage: 'Our communities keep us happy together. Live, eat, and play with friends wherever you go.',
-  },
-  headline: {
-    id: 'app.components.FeaturesSection.headline',
-    defaultMessage: 'Features',
   },
 });

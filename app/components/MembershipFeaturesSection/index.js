@@ -7,12 +7,9 @@
 import React from 'react';
 // import styled from 'styled-components';
 
-import { FormattedMessage } from 'react-intl';
 import { createStyleSheet } from 'jss-theme-reactor';
 import customPropTypes from 'material-ui/utils/customPropTypes';
-import Text from 'material-ui/Text';
 import Layout from 'material-ui/Layout';
-import Paper from 'material-ui/Paper';
 import Hotel from 'material-ui-icons/Hotel';
 import Weekend from 'material-ui-icons/Weekend';
 import Wifi from 'material-ui-icons/Wifi';
@@ -24,6 +21,7 @@ import LocalFlorist from 'material-ui-icons/LocalFlorist';
 import RestaurantMenu from 'material-ui-icons/RestaurantMenu';
 import messages from './messages';
 import FeatureIcon from './FeatureIcon';
+import SectionHeader from '../SectionHeader';
 
 
 const styleSheet = createStyleSheet('MembershipFeaturesSection', (theme) => ({
@@ -48,27 +46,8 @@ function MembershipFeaturesSection(props, context) {
   const classes = context.styleManager.render(styleSheet);
   return (
     <div className={classes.root}>
+      <SectionHeader headline={messages.headline} slogan={messages.slogan} />
       <Layout container gutter={16}>
-        <Layout item xs={12}>
-          <Layout
-            container
-            className={classes.headline}
-            align={'center'}
-            direction={'column'}
-            justify={'center'}
-          >
-            <Layout item xs>
-              <Paper elevation={0} square className={classes.transparent}>
-                <Text type={'display3'} component={'h1'} align={'center'} gutterBottom>
-                  <FormattedMessage {...messages.headline} />
-                </Text>
-                <Text type={'subheading'} component={'h3'} align={'center'} secondary gutterBottom>
-                  <FormattedMessage {...messages.slogan} />
-                </Text>
-              </Paper>
-            </Layout>
-          </Layout>
-        </Layout>
         <Layout item xs={12}>
           <Layout
             container

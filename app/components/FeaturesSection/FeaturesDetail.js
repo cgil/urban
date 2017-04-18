@@ -17,7 +17,7 @@ import Paper from 'material-ui/Paper';
 
 const styleSheet = createStyleSheet('FeaturesDetail', () => ({
   container: {
-    height: 600,
+    height: 530,
   },
   transparent: {
     'background-color': 'transparent',
@@ -33,7 +33,7 @@ const styleSheet = createStyleSheet('FeaturesDetail', () => ({
     'min-width': '100%',
   },
   feature: {
-    height: 200,
+    height: 120,
   },
 }));
 
