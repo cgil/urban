@@ -19,7 +19,7 @@ import SectionHeader from '../SectionHeader';
 
 const styleSheet = createStyleSheet('CtaSection', (theme) => ({
   root: theme.mixins.gutters({
-    paddingTop: 16,
+    paddingTop: 18,
     paddingBottom: 16,
     flexGrow: 1,
     position: 'relative',
@@ -31,8 +31,7 @@ const styleSheet = createStyleSheet('CtaSection', (theme) => ({
   button: {
     margin: theme.spacing.unit,
     height: 57,
-    'min-width': 140,
-    'font-size': 18,
+    'font-size': 16,
     padding: '0 24px',
   },
 }));

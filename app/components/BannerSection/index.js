@@ -41,8 +41,7 @@ const styleSheet = createStyleSheet('BannerSection', (theme) => ({
   button: {
     margin: theme.spacing.unit,
     height: 57,
-    'min-width': 140,
-    'font-size': 18,
+    'font-size': 16,
     padding: '0 24px',
   },
   paper: {
