@@ -4,7 +4,8 @@
 *
 */
 
-import React from 'react';
+import React, { PropTypes } from 'react';
+import { connect } from 'react-redux';
 import { FormattedMessage } from 'react-intl';
 import { createStyleSheet } from 'jss-theme-reactor';
 import customPropTypes from 'material-ui/utils/customPropTypes';
@@ -14,7 +15,7 @@ import Text from 'material-ui/Text';
 import Button from 'material-ui/Button';
 import IconButton from 'material-ui/IconButton';
 import MenuIcon from 'material-ui-icons/Menu';
-import messages from './messages';
+import goTo from '../../utils/goTo';
 // import styled from 'styled-components';
 
 
@@ -35,14 +36,25 @@ const styleSheet = createStyleSheet('ToolBar', (theme) => ({
   },
   button: {
     margin: theme.spacing.unit,
+    marginLeft: 'auto',
     height: 57,
     'font-size': 16,
     padding: '0 24px',
+  },
+  homeButton: {
+    textTransform: 'none',
   },
 }));
 
 function ToolBar(props, context) {
   const classes = context.styleManager.render(styleSheet);
+  const homeButtonRoute = goTo(props.dispatch, '/');
+  const buttons = props.buttons.map((button) =>
+    <Button raised accent className={classes.button} key={button.name.id} onClick={button.route}>
+      <FormattedMessage {...button.name} />
+    </Button>
+  );
+
   return (
     <div className={classes.root}>
       <AppBar className={classes.appBar}>
@@ -50,10 +62,10 @@ function ToolBar(props, context) {
           <IconButton contrast>
             <MenuIcon />
           </IconButton>
-          <Text type="title" colorInherit className={classes.flex}>Urban</Text>
-          <Button raised accent className={classes.button}>
-            <FormattedMessage {...messages.ownerInfoButton} />
+          <Button contrast onClick={homeButtonRoute} className={classes.homeButton}>
+            <Text type="title" colorInherit className={classes.flex}>Urban</Text>
           </Button>
+          { buttons }
         </Toolbar>
       </AppBar>
     </div>
@@ -64,7 +76,19 @@ ToolBar.contextTypes = {
   styleManager: customPropTypes.muiRequired,
 };
 
-ToolBar.propTypes = {
+ToolBar.defaultProps = {
+  buttons: [],
 };
 
-export default ToolBar;
+ToolBar.propTypes = {
+  dispatch: PropTypes.func.isRequired,
+  buttons: PropTypes.array,
+};
+
+function mapDispatchToProps(dispatch) {
+  return {
+    dispatch,
+  };
+}
+
+export default connect(null, mapDispatchToProps)(ToolBar);

@@ -9,7 +9,8 @@
  * the linting exception.
  */
 
-import React from 'react';
+import React, { PropTypes } from 'react';
+import { connect } from 'react-redux';
 import Divider from 'material-ui/Divider';
 import customPropTypes from 'material-ui/utils/customPropTypes';
 import { createStyleSheet } from 'jss-theme-reactor';
@@ -21,6 +22,8 @@ import MembershipFeaturesSection from '../../components/MembershipFeaturesSectio
 import TestimonialsSection from '../../components/TestimonialsSection';
 import CtaSection from '../../components/CtaSection';
 import FooterSection from '../../components/FooterSection';
+import messages from './messages';
+import goTo from '../../utils/goTo';
 
 
 const styleSheet = createStyleSheet('HomePage', () => ({
@@ -29,12 +32,14 @@ const styleSheet = createStyleSheet('HomePage', () => ({
   },
 }));
 
-
 function HomePage(props, context) {
   const classes = context.styleManager.render(styleSheet);
+  const toolbarButtons = [
+    { name: messages.ownerInfoButton, route: goTo(props.dispatch, '/partners') },
+  ];
   return (
     <div>
-      <ToolBar />
+      <ToolBar buttons={toolbarButtons} />
       <BannerSection />
       <HomesSection />
       <Divider className={classes.divider} />
@@ -51,4 +56,14 @@ HomePage.contextTypes = {
   styleManager: customPropTypes.muiRequired,
 };
 
-export default HomePage;
+HomePage.propTypes = {
+  dispatch: PropTypes.func.isRequired,
+};
+
+function mapDispatchToProps(dispatch) {
+  return {
+    dispatch,
+  };
+}
+
+export default connect(null, mapDispatchToProps)(HomePage);

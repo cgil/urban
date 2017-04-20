@@ -9,7 +9,8 @@
  * the linting exception.
  */
 
-import React from 'react';
+import React, { PropTypes } from 'react';
+import { connect } from 'react-redux';
 import customPropTypes from 'material-ui/utils/customPropTypes';
 import ToolBar from '../../components/ToolBar';
 import BannerSection from '../../components/BannerSection';
@@ -32,4 +33,14 @@ PartnerPage.contextTypes = {
   styleManager: customPropTypes.muiRequired,
 };
 
-export default PartnerPage;
+PartnerPage.propTypes = {
+  dispatch: PropTypes.func.isRequired,
+};
+
+function mapDispatchToProps(dispatch) {
+  return {
+    dispatch,
+  };
+}
+
+export default connect(null, mapDispatchToProps)(PartnerPage);
