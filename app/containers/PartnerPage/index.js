@@ -12,6 +12,12 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import customPropTypes from 'material-ui/utils/customPropTypes';
+import Face from 'material-ui-icons/Face';
+import Favorite from 'material-ui-icons/Favorite';
+import Build from 'material-ui-icons/Build';
+import Event from 'material-ui-icons/Event';
+import GraphicEq from 'material-ui-icons/GraphicEq';
+import ShowChart from 'material-ui-icons/ShowChart';
 import ToolBar from '../../components/ToolBar';
 import BannerSection from '../../components/BannerSection';
 import FeaturesSection from '../../components/FeaturesSection';
@@ -26,7 +32,14 @@ function PartnerPage(props) {
   const toolbarButtons = [
     { name: messages.ownerInfoButton, route: goTo(props.dispatch, '/partners') },
   ];
-  const features = [];
+  const features = [
+    { name: messages.tenantPlacementName, description: messages.tenantPlacementDescription, icon: Face },
+    { name: messages.advancedBookingName, description: messages.advancedBookingDescription, icon: Event },
+    { name: messages.maintenanceName, description: messages.maintenanceDescription, icon: Build },
+    { name: messages.supportName, description: messages.supportDescription, icon: Favorite },
+    { name: messages.pricingName, description: messages.pricingDescription, icon: GraphicEq },
+    { name: messages.transparacyName, description: messages.transparancyDescription, icon: ShowChart },
+  ];
   return (
     <div>
       <ToolBar buttons={toolbarButtons} />
@@ -35,7 +48,11 @@ function PartnerPage(props) {
         slogan={messages.bannerSlogan}
         backgroundImage={bannerImg}
       />
-      <FeaturesSection features={features} />
+      <FeaturesSection
+        headline={messages.featuresHeadline}
+        slogan={messages.featuresSlogan}
+        features={features}
+      />
       <CtaSection
         headline={messages.ctaHeadline}
         button={messages.ctaButton}
