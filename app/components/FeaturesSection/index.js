@@ -4,17 +4,14 @@
 *
 */
 
-import React from 'react';
+import React, { PropTypes } from 'react';
 // import styled from 'styled-components';
 
 import { createStyleSheet } from 'jss-theme-reactor';
 import customPropTypes from 'material-ui/utils/customPropTypes';
 import Layout from 'material-ui/Layout';
-import FeaturesDetail from './FeaturesDetail';
-import messages from './messages';
+import FeatureIcon from './FeatureIcon';
 import SectionHeader from '../SectionHeader';
-import cookingImg from '../../static/img/cooking.jpg';
-import guitarImg from '../../static/img/guitar.jpg';
 
 
 const styleSheet = createStyleSheet('FeaturesSection', (theme) => ({
@@ -24,13 +21,31 @@ const styleSheet = createStyleSheet('FeaturesSection', (theme) => ({
     flexGrow: 1,
     position: 'relative',
   }),
+  headline: {
+    height: 250,
+  },
+  white: {
+    color: 'white',
+  },
+  transparent: {
+    'background-color': 'transparent',
+  },
 }));
 
 function FeaturesSection(props, context) {
   const classes = context.styleManager.render(styleSheet);
+  const features = props.features.map((feature) =>
+    <Layout item xs={12} sm={4} key={feature.name.id}>
+      <FeatureIcon
+        name={feature.name}
+        description={feature.description}
+        icon={feature.icon}
+      />
+    </Layout>
+  );
   return (
     <div className={classes.root}>
-      <SectionHeader headline={messages.headline} />
+      <SectionHeader headline={props.headline} slogan={props.slogan} />
       <Layout container gutter={16}>
         <Layout item xs={12}>
           <Layout
@@ -39,20 +54,7 @@ function FeaturesSection(props, context) {
             direction={'row'}
             justify={'center'}
           >
-            <Layout item xs>
-              <FeaturesDetail
-                name={messages.convenienceName}
-                address={messages.convenienceDescription}
-                image={cookingImg}
-              />
-            </Layout>
-            <Layout item xs>
-              <FeaturesDetail
-                name={messages.communityName}
-                address={messages.communityDescription}
-                image={guitarImg}
-              />
-            </Layout>
+            {features}
           </Layout>
         </Layout>
       </Layout>
@@ -65,7 +67,9 @@ FeaturesSection.contextTypes = {
 };
 
 FeaturesSection.propTypes = {
-
+  features: PropTypes.array.isRequired,
+  headline: PropTypes.object,
+  slogan: PropTypes.object,
 };
 
 export default FeaturesSection;

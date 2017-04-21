@@ -1,6 +1,6 @@
 /**
 *
-* FeaturesSection Detail
+* BenefitsDetail
 *
 */
 
@@ -15,7 +15,7 @@ import Layout from 'material-ui/Layout';
 import Paper from 'material-ui/Paper';
 
 
-const styleSheet = createStyleSheet('FeaturesDetail', () => ({
+const styleSheet = createStyleSheet('BenefitsDetail', () => ({
   container: {
     height: 530,
   },
@@ -37,7 +37,7 @@ const styleSheet = createStyleSheet('FeaturesDetail', () => ({
   },
 }));
 
-function FeaturesDetail(props, context) {
+function BenefitsDetail(props, context) {
   const classes = context.styleManager.render(styleSheet);
   return (
     <Paper elevation={0} square className={classes.transparent}>
@@ -64,14 +64,14 @@ function FeaturesDetail(props, context) {
   );
 }
 
-FeaturesDetail.contextTypes = {
+BenefitsDetail.contextTypes = {
   styleManager: customPropTypes.muiRequired,
 };
 
-FeaturesDetail.propTypes = {
+BenefitsDetail.propTypes = {
   name: PropTypes.object,
   address: PropTypes.object,
   image: PropTypes.string,
 };
 
-export default FeaturesDetail;
+export default BenefitsDetail;

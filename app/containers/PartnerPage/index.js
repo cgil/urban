@@ -14,6 +14,7 @@ import { connect } from 'react-redux';
 import customPropTypes from 'material-ui/utils/customPropTypes';
 import ToolBar from '../../components/ToolBar';
 import BannerSection from '../../components/BannerSection';
+import FeaturesSection from '../../components/FeaturesSection';
 import CtaSection from '../../components/CtaSection';
 import FooterSection from '../../components/FooterSection';
 import messages from './messages';
@@ -25,6 +26,7 @@ function PartnerPage(props) {
   const toolbarButtons = [
     { name: messages.ownerInfoButton, route: goTo(props.dispatch, '/partners') },
   ];
+  const features = [];
   return (
     <div>
       <ToolBar buttons={toolbarButtons} />
@@ -33,6 +35,7 @@ function PartnerPage(props) {
         slogan={messages.bannerSlogan}
         backgroundImage={bannerImg}
       />
+      <FeaturesSection features={features} />
       <CtaSection
         headline={messages.ctaHeadline}
         button={messages.ctaButton}

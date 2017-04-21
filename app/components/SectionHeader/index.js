@@ -33,9 +33,11 @@ function SectionHeader(props, context) {
     >
       <Layout item xs>
         <Paper elevation={0} square className={classes.transparent}>
-          <Text type={'display2'} component={'h1'} align={'center'} gutterBottom>
-            <FormattedMessage {...props.headline} />
-          </Text>
+          {props.headline &&
+            <Text type={'display2'} component={'h1'} align={'center'} gutterBottom>
+              <FormattedMessage {...props.headline} />
+            </Text>
+          }
           {props.slogan &&
             <Text type={'subheading'} component={'h3'} align={'center'} secondary gutterBottom>
               <FormattedMessage {...props.slogan} />
