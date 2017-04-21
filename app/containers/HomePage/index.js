@@ -24,6 +24,7 @@ import CtaSection from '../../components/CtaSection';
 import FooterSection from '../../components/FooterSection';
 import messages from './messages';
 import goTo from '../../utils/goTo';
+import bannerImg from '../../static/img/banner.jpg';
 
 
 const styleSheet = createStyleSheet('HomePage', () => ({
@@ -40,13 +41,21 @@ function HomePage(props, context) {
   return (
     <div>
       <ToolBar buttons={toolbarButtons} />
-      <BannerSection />
+      <BannerSection
+        headline={messages.bannerHeadline}
+        slogan={messages.bannerSlogan}
+        button={messages.bannerButton}
+        backgroundImage={bannerImg}
+      />
       <HomesSection />
       <Divider className={classes.divider} />
       <FeaturesSection />
       <MembershipFeaturesSection />
       <TestimonialsSection />
-      <CtaSection />
+      <CtaSection
+        headline={messages.ctaHeadline}
+        button={messages.ctaButton}
+      />
       <FooterSection />
     </div>
   );

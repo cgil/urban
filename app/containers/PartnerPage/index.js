@@ -16,14 +16,27 @@ import ToolBar from '../../components/ToolBar';
 import BannerSection from '../../components/BannerSection';
 import CtaSection from '../../components/CtaSection';
 import FooterSection from '../../components/FooterSection';
+import messages from './messages';
+import goTo from '../../utils/goTo';
+import bannerImg from '../../static/img/property-owner-banner.jpg';
 
 
-function PartnerPage() {
+function PartnerPage(props) {
+  const toolbarButtons = [
+    { name: messages.ownerInfoButton, route: goTo(props.dispatch, '/partners') },
+  ];
   return (
     <div>
-      <ToolBar />
-      <BannerSection />
-      <CtaSection />
+      <ToolBar buttons={toolbarButtons} />
+      <BannerSection
+        headline={messages.bannerHeadline}
+        slogan={messages.bannerSlogan}
+        backgroundImage={bannerImg}
+      />
+      <CtaSection
+        headline={messages.ctaHeadline}
+        button={messages.ctaButton}
+      />
       <FooterSection />
     </div>
   );

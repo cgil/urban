@@ -4,7 +4,7 @@
 *
 */
 
-import React from 'react';
+import React, { PropTypes } from 'react';
 // import styled from 'styled-components';
 
 import { FormattedMessage } from 'react-intl';
@@ -15,8 +15,6 @@ import Text from 'material-ui/Text';
 import Button from 'material-ui/Button';
 import Layout from 'material-ui/Layout';
 import Paper from 'material-ui/Paper';
-import messages from './messages';
-import bannerImg from '../../static/img/banner.jpg';
 
 
 const styleSheet = createStyleSheet('BannerSection', (theme) => ({
@@ -24,7 +22,6 @@ const styleSheet = createStyleSheet('BannerSection', (theme) => ({
     paddingTop: 16,
     paddingBottom: 16,
     flexGrow: 1,
-    'background-image': `url(${bannerImg})`,
     'background-repeat': 'no-repeat',
     'background-size': 'cover',
     'background-position': '50% 50%',
@@ -56,7 +53,7 @@ const styleSheet = createStyleSheet('BannerSection', (theme) => ({
 function BannerSection(props, context) {
   const classes = context.styleManager.render(styleSheet);
   return (
-    <div className={classes.root}>
+    <div className={classes.root} style={{ backgroundImage: `url(${props.backgroundImage})` }}>
       <Layout container gutter={16} className={classes.container}>
         <Layout item xs={12}>
           <Layout
@@ -69,19 +66,25 @@ function BannerSection(props, context) {
             <Layout item>
               <Paper elevation={0} square className={classes.paper}>
                 <Text type={'display3'} component={'h1'} align={'center'} className={classes.text}>
-                  <FormattedMessage {...messages.headline} />
+                  {props.headline &&
+                    <FormattedMessage {...props.headline} />
+                  }
                 </Text>
                 <Text type={'display1'} component={'h3'} align={'center'} className={classes.text}>
-                  <FormattedMessage {...messages.slogan} />
+                  {props.slogan &&
+                    <FormattedMessage {...props.slogan} />
+                  }
                 </Text>
               </Paper>
             </Layout>
             <Layout item>
-              <Paper elevation={0} square className={classes.paper}>
-                <Button raised accent className={classes.button}>
-                  <FormattedMessage {...messages.button} />
-                </Button>
-              </Paper>
+              {props.button &&
+                <Paper elevation={0} square className={classes.paper}>
+                  <Button raised accent className={classes.button}>
+                    <FormattedMessage {...props.button} />
+                  </Button>
+                </Paper>
+              }
             </Layout>
           </Layout>
         </Layout>
@@ -95,6 +98,10 @@ BannerSection.contextTypes = {
 };
 
 BannerSection.propTypes = {
+  backgroundImage: PropTypes.string.isRequired,
+  headline: PropTypes.object,
+  slogan: PropTypes.object,
+  button: PropTypes.object,
 };
 
 export default BannerSection;

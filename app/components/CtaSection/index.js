@@ -4,7 +4,7 @@
 *
 */
 
-import React from 'react';
+import React, { PropTypes } from 'react';
 // import styled from 'styled-components';
 
 import { FormattedMessage } from 'react-intl';
@@ -13,7 +13,6 @@ import customPropTypes from 'material-ui/utils/customPropTypes';
 import Layout from 'material-ui/Layout';
 import Paper from 'material-ui/Paper';
 import Button from 'material-ui/Button';
-import messages from './messages';
 import SectionHeader from '../SectionHeader';
 
 
@@ -40,7 +39,7 @@ function CtaSection(props, context) {
   const classes = context.styleManager.render(styleSheet);
   return (
     <div className={classes.root}>
-      <SectionHeader headline={messages.headline} marginBottom={15} />
+      <SectionHeader headline={props.headline} marginBottom={15} />
       <Layout
         container
         gutter={16}
@@ -51,7 +50,7 @@ function CtaSection(props, context) {
         <Layout item xs={12}>
           <Paper elevation={0} square className={classes.paper}>
             <Button raised accent className={classes.button}>
-              <FormattedMessage {...messages.button} />
+              <FormattedMessage {...props.button} />
             </Button>
           </Paper>
         </Layout>
@@ -65,7 +64,8 @@ CtaSection.contextTypes = {
 };
 
 CtaSection.propTypes = {
-
+  headline: PropTypes.object.isRequired,
+  button: PropTypes.object.isRequired,
 };
 
 export default CtaSection;

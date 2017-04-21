@@ -36,10 +36,10 @@ const styleSheet = createStyleSheet('ToolBar', (theme) => ({
   },
   button: {
     margin: theme.spacing.unit,
-    marginLeft: 'auto',
     height: 57,
     'font-size': 16,
     padding: '0 24px',
+    textTransform: 'none',
   },
   homeButton: {
     textTransform: 'none',
@@ -50,7 +50,7 @@ function ToolBar(props, context) {
   const classes = context.styleManager.render(styleSheet);
   const homeButtonRoute = goTo(props.dispatch, '/');
   const buttons = props.buttons.map((button) =>
-    <Button raised accent className={classes.button} key={button.name.id} onClick={button.route}>
+    <Button contrast className={classes.button} key={button.name.id} onClick={button.route}>
       <FormattedMessage {...button.name} />
     </Button>
   );
