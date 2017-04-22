@@ -80,7 +80,7 @@ function BannerSection(props, context) {
             <Layout item>
               {props.button &&
                 <Paper elevation={0} square className={classes.paper}>
-                  <Button raised accent className={classes.button}>
+                  <Button raised accent className={classes.button} onClick={props.buttonRoute}>
                     <FormattedMessage {...props.button} />
                   </Button>
                 </Paper>
@@ -102,6 +102,7 @@ BannerSection.propTypes = {
   headline: PropTypes.object,
   slogan: PropTypes.object,
   button: PropTypes.object,
+  buttonRoute: PropTypes.func,
 };
 
 export default BannerSection;

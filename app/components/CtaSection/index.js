@@ -49,7 +49,7 @@ function CtaSection(props, context) {
       >
         <Layout item xs={12}>
           <Paper elevation={0} square className={classes.paper}>
-            <Button raised accent className={classes.button}>
+            <Button raised accent className={classes.button} onClick={props.buttonRoute}>
               <FormattedMessage {...props.button} />
             </Button>
           </Paper>
@@ -66,6 +66,7 @@ CtaSection.contextTypes = {
 CtaSection.propTypes = {
   headline: PropTypes.object.isRequired,
   button: PropTypes.object.isRequired,
+  buttonRoute: PropTypes.func.isRequired,
 };
 
 export default CtaSection;

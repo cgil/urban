@@ -64,8 +64,9 @@ function HomePage(props, context) {
       <BannerSection
         headline={messages.bannerHeadline}
         slogan={messages.bannerSlogan}
-        button={messages.bannerButton}
         backgroundImage={bannerImg}
+        button={messages.bannerButton}
+        buttonRoute={goTo(props.dispatch, '/apply')}
       />
       <HomesSection />
       <Divider className={classes.divider} />
@@ -79,6 +80,7 @@ function HomePage(props, context) {
       <CtaSection
         headline={messages.ctaHeadline}
         button={messages.ctaButton}
+        buttonRoute={goTo(props.dispatch, '/apply')}
       />
       <FooterSection />
     </div>

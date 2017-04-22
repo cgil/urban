@@ -56,6 +56,7 @@ function PartnerPage(props) {
       <CtaSection
         headline={messages.ctaHeadline}
         button={messages.ctaButton}
+        buttonRoute={goTo(props.dispatch, '/apply')}
       />
       <FooterSection />
     </div>
