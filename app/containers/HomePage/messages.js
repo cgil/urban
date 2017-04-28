@@ -12,11 +12,11 @@ export default defineMessages({
   },
   bannerHeadline: {
     id: 'app.components.HomePage.bannerHeadline',
-    defaultMessage: 'Flexible Living.',
+    defaultMessage: 'Living Simply with Friends.',
   },
   bannerSlogan: {
     id: 'app.components.HomePage.bannerSlogan',
-    defaultMessage: 'Everything included, simple housing.',
+    defaultMessage: 'Life is better with friends nearby.',
   },
   bannerButton: {
     id: 'app.components.HomePage.bannerButton',

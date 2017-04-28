@@ -10,4 +10,8 @@ export default defineMessages({
     id: 'app.components.ApplicationPage.ownerInfoButton',
     defaultMessage: 'Property Owners',
   },
+  submitButton: {
+    id: 'app.components.ApplicationPage.submitButton',
+    defaultMessage: 'Apply',
+  },
 });
